@@ -1,0 +1,32 @@
+﻿@page "/admin/todo"
+@inherits IndexModel
+<header title="Lista - Todos"></header>
+<p>
+    <a href="/admin/todo/create" class="btn btn-success">Novo</a>
+</p>
+@if (Todos == null)
+{
+    <Loading></Loading>
+}
+else
+{
+<table class="table">
+    <thead>
+        <tr>
+            <th style="width:20%" class="text-center;">Id</th>
+            <th style="width:60%" class="text-center;">Título</th>
+            <th style="width:20%" class="text-center;">...</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var todo in Todos)
+        {
+        <tr>
+            <td class="text-center;">@todo.Id.ToString("0000")</td>
+            <td>@todo.Title</td>
+            <td class="text-center;"><a href="/admin/todo/edit/@todo.Id" class="btn btn-success">Alterar</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+}

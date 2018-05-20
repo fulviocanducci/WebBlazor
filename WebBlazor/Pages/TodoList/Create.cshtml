@@ -1,0 +1,20 @@
+﻿@page "/admin/todo/create"
+@inherits CreateModel
+<header title="Novo - Todo"></header>
+@if (Todo == null)
+{
+    <Loading></Loading>
+}
+else
+{
+    <div>
+        <div class="input-group mb-3">
+            <input type="text" id="input-title" onkeyup="@SaveKeyUpEnterAsync" class="form-control" bind="Todo.Title" placeholder="Digite o titulo" aria-label="Digite o titulo" aria-describedby="basic-addon2" autofocus/>
+            <div class="input-group-append">
+                <button class="btn btn-outline-success" type="button" onclick="@SaveAsync">Salvar</button>
+                <button class="btn btn-outline-danger" type="button" onclick="@Cancel">Voltar</button>
+            </div>
+        </div>
+    </div>
+}
+    <Modal Text="Digite o titulo!"></Modal>

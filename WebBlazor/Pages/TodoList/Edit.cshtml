@@ -1,0 +1,21 @@
+﻿@page "/admin/todo/edit/{id:int}"
+@inherits EditModel
+<header title="Alterar - Todo"></header>
+@if (Todo == null)
+{
+    <Loading></Loading>
+}
+else
+{
+    <div>
+        <input type="hidden" bind="Todo.Id" />
+        <div class="input-group mb-3">            
+            <input type="text" id="input-title" onkeyup="@SaveKeyUpEnterAsync" class="form-control" bind="Todo.Title" placeholder="Digite e altere o titulo" aria-label="Digite e altere o titulo" aria-describedby="basic-addon2" autofocus/>
+            <div class="input-group-append">
+                <button class="btn btn-outline-success" type="button" onclick="@SaveAsync">Salvar</button>
+                <button class="btn btn-outline-danger" type="button" onclick="@Cancel">Voltar</button>
+            </div>
+        </div>
+    </div>    
+}
+    <Modal Text="Digite o titulo!"></Modal>

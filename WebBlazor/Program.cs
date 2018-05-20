@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Blazor.Browser.Rendering;
 using Microsoft.AspNetCore.Blazor.Browser.Services;
 using Microsoft.Extensions.DependencyInjection;
-using System;
+using WebBlazor.Models;
 
 namespace WebBlazor
 {
@@ -11,7 +11,7 @@ namespace WebBlazor
         {
             var serviceProvider = new BrowserServiceProvider(services =>
             {
-                // Add any custom services here
+                services.AddScoped<IServiceTodo, ServiceTodo>();
             });
 
             new BrowserRenderer(serviceProvider).AddComponent<App>("app");
